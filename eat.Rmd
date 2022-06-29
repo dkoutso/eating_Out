@@ -53,6 +53,8 @@ barchartGC(~race + eatout,data=mydata, type="percent")
 
 ```
 
+This plot shows that the percentage of white that eatout is greater than the percentage of black and other races.  
+
 ## Numerical summeries
 
 
@@ -63,3 +65,26 @@ colPerc(table1)
 ```
 
 This table shows that, white people eat out morethan any other race, as they have a percentage of 83.11, the black people have a percentage of 69.04, and the other race have a percentage of 72.12.  
+
+
+# Results
+
+
+## Inferential
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+
+The the chi-squared test shows that the p-value is 0.0000002, it is smaller than 0.05, and so we reject the null hypothesis by saying that  There is a statistical difference between at least two races with the frequency of eating out.  
+
+```{r}
+fisherXY(mydata$race,mydata$eatout, printAll =TRUE)
+```
+
+Based on the Fisher's exact test, the first odds ratio is 2.21, which implies that the number of whites that eatout is twice the number of black.  
+
+Based on the Fisher's exact test, the second odds ratio is 1.9, which implies that the number of whites that eatout is 1.9 slightly greater than the number of other races.  
+Based on the Fisher's exact test, the third odds ratio is 0.9, which implies that the number of black that eatout is 0.9 slightly greater than the other races.  
